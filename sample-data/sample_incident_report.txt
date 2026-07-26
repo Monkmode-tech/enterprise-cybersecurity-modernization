@@ -1,0 +1,150 @@
+FICBANK Security Incident Report - Fictional Scenario
+Report ID: IR-2026-017
+Classification: Internal Security Analysis
+Incident status: Contained; investigation continuing
+Prepared by: Security Analysis and Investigation
+Scope: User workstation, Windows servers, email, and perimeter telemetry
+Collection window: 2026-07-20 through 2026-07-21
+All addresses, domains, and identities in this report are synthetic.
+Executive Summary
+001 The SOC investigated suspicious authentication and endpoint activity.
+002 Initial detection originated from an EDR alert on workstation WKSTN-077.
+003 The affected user reported opening an unexpected invoice attachment.
+004 Correlated evidence showed remote login attempts and PowerShell execution.
+005 Network connections reached 203.0.113.45 shortly after execution.
+006 A second connection targeted 198.51.100.77 over an uncommon web port.
+007 Internal activity later involved 10.20.1.77 and server 10.30.1.8.
+008 Analysts found indicators across endpoint, firewall, and Windows logs.
+009 The workstation was isolated and collected evidence was preserved.
+010 No claim is made that this scenario represents a real production event.
+Windows Event Log Review
+011 Event ID 4624 recorded a normal interactive login before the incident.
+012 Event ID 4625 recorded repeated failures from 192.0.2.60.
+013 Event ID 4648 showed explicit credentials used by a child process.
+014 Event ID 4672 assigned special privileges to an unexpected session.
+015 Event ID 4688 recorded powershell.exe launched by winword.exe.
+016 Event ID 4688 included an encoded command in the process arguments.
+017 Event ID 4697 showed an unauthorized service installation attempt.
+018 Event ID 4728 showed a temporary privileged-group membership change.
+019 Event ID 1102 was not observed; the local audit log remained present.
+020 Server logs linked the activity to internal address 10.20.1.77.
+021 RDP logon type 10 was recorded against host 10.30.1.8.
+022 The source of the RDP attempt was 203.0.113.45.
+023 Authentication failures preceded the successful service-account login.
+024 Analysts preserved the Security and PowerShell Operational channels.
+Firewall Alerts
+025 The perimeter control blocked inbound RDP from 192.0.2.60.
+026 Repeated SSH probes were observed from 203.0.113.45.
+027 Outbound HTTPS traffic reached secure-docs.example.
+028 A connection to http://198.51.100.77:8080/stage.ps1 was denied.
+029 DNS telemetry recorded update-check.example after attachment execution.
+030 The host also queried telemetry-node.test three times.
+031 An IPv6 session originated from 2001:db8:85a3::8a2e:370:7334.
+032 The IPv6 destination 2001:db8:abcd:12::44 was blocked.
+033 No unrestricted SMB connection crossed the Internet boundary.
+034 Internal SMB activity from 10.20.1.77 required further review.
+035 Firewall disposition for the known malicious endpoints was deny.
+036 Analysts added temporary monitoring for cdn-cache.example.
+EDR Alerts
+037 EDR detected a suspicious Office child process on WKSTN-077.
+038 The process tree showed winword.exe spawning powershell.exe.
+039 PowerShell created a file in the user temporary directory.
+040 The file MD5 was 44d88612fea8a8f36de82e1278abb02f.
+041 The file SHA1 was 3395856ce81f2b7382dee72602f798b642f14140.
+042 The file SHA256 was 275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f.
+043 EDR quarantined the artifact before a second execution attempt.
+044 A memory alert showed credential-access behavior by the same process.
+045 The workstation network interface was isolated through EDR.
+046 Response status confirmed successful host isolation.
+047 Evidence preservation completed before malicious-process termination.
+048 A second artifact had MD5 d41d8cd98f00b204e9800998ecf8427e.
+049 Its SHA1 was da39a3ee5e6b4b0d3255bfef95601890afd80709.
+050 Its SHA256 was e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.
+SOC Analyst Notes
+051 The first alert was triaged as a possible phishing-related compromise.
+052 The analyst correlated endpoint time with firewall and identity events.
+053 The source address 203.0.113.45 appeared in five failed logins.
+054 The address 198.51.100.77 hosted the observed staging path.
+055 The standalone domain login-review.example appeared in analyst notes.
+056 No legitimate business owner recognized secure-docs.example.
+057 The URL https://secure-docs.example/invoice/Review.zip was blocked.
+058 The URL https://update-check.example/api/v2/beacon returned no content.
+059 Analysts searched for both URLs across available security telemetry.
+060 The search identified one affected user endpoint and no other hosts.
+061 Case ownership transferred to the incident investigation queue.
+062 Severity remained High pending credential-reset validation.
+
+Threat Intelligence Review
+063 Threat intelligence associated the infrastructure with phishing activity.
+064 The address 192.0.2.60 was linked to remote login scanning.
+065 The domain telemetry-node.test was treated as command-and-control context.
+066 The observed behavior was reviewed against MITRE ATT&CK techniques.
+067 Analysts reviewed exposure related to CVE-2023-23397.
+068 The Linux package review referenced CVE-2024-3094.
+069 A server validation check included CVE-2021-44228.
+070 The CVE references provide hunting context and are not exploit proof.
+071 Intelligence confidence was moderate due to synthetic source material.
+072 Infrastructure overlap justified temporary blocking and monitoring.
+073 The IPv6 indicator 2001:db8:85a3::8a2e:370:7334 was retained.
+074 All threat intelligence findings require validation against local evidence.
+
+Email Phishing Analysis
+075 The message impersonated an invoice-processing notification.
+076 The sender was billing-alert@secure-docs.example.
+077 The reply-to address was helpdesk-review@ficbank.example.
+078 The message instructed the user to open Review.zip immediately.
+079 The displayed link concealed secure-docs.example.
+080 Email headers showed a sending address of 198.51.100.77.
+081 The message failed expected authentication checks.
+082 The attachment was removed from the recipient mailbox.
+083 SOC notifications were sent from soc@ficbank.example.
+084 Mailbox searches found no additional recipients of the same hash.
+085 The phishing message and headers were retained as evidence.
+086 User awareness follow-up was requested after containment.
+
+Malware Investigation
+087 Static review identified an encoded PowerShell download command.
+088 The command retrieved http://198.51.100.77:8080/stage.ps1.
+089 A later instruction referenced https://update-check.example/api/v2/beacon.
+090 The script attempted persistence through a scheduled task.
+091 The task name imitated a routine update operation.
+092 The payload attempted discovery of domain and local accounts.
+093 The payload attempted access to cached authentication material.
+094 No destructive encryption behavior was observed in collected evidence.
+095 The quarantined SHA256 remained 275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f.
+096 The artifact was handled as malicious for this fictional investigation.
+097 Analysts submitted the hashes for environment-wide hunting.
+098 No additional matching files were reported by endpoint telemetry.
+
+Remote Login and Privilege Escalation
+099 RDP attempts targeted the administrative interface on 10.30.1.8.
+100 Failed attempts originated from 192.0.2.60 and 203.0.113.45.
+101 SSH authentication attempts also originated from 203.0.113.45.
+102 A privileged account logged in outside its expected administration path.
+103 The account was disabled pending owner verification.
+104 Privileged group membership was restored to its approved state.
+105 Analysts reviewed SMB activity involving 10.20.1.77.
+106 No direct evidence showed successful Internet-originated SMB access.
+107 The jump-host workflow was recommended for future privileged sessions.
+108 Identity and Access Management records were retained with the case.
+
+PowerShell Activity
+109 Script block logging captured a download and execution sequence.
+110 The command used an encoded payload and hidden window arguments.
+111 PowerShell contacted update-check.example after the document opened.
+112 The process attempted to disable a local monitoring preference.
+113 EDR blocked the change and generated a prevention alert.
+114 Analysts decoded the command in an isolated investigation context.
+115 The decoded script referenced cdn-cache.example as a fallback.
+116 No approved administration record explained the PowerShell activity.
+
+Containment and Follow-Up
+117 The endpoint remained isolated until evidence collection completed.
+118 Credentials associated with the affected user were reset.
+119 Temporary blocks covered the identified IPs, domains, URLs, and hashes.
+120 Splunk searches were updated with the extracted investigation context.
+121 Security Analysis and Investigation documented the response timeline.
+122 Vulnerability review was requested for the referenced CVE identifiers.
+123 Firewall and EDR coverage gaps were assigned for validation.
+124 Monitoring will continue for recurring authentication failures.
+125 The incident report will be closed after control validation completes.

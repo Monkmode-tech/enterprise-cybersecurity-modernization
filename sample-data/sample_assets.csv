@@ -1,0 +1,11 @@
+Asset,Business Criticality,Internet Facing
+Public Web Server,High,Yes
+Customer Portal,High,Yes
+Domain Controller 1,Critical,No
+Domain Controller 2,Critical,No
+Database Server,Critical,No
+Linux Application Server,High,No
+Windows File Server,High,No
+Splunk Server,High,No
+Administrative Jump Host,Critical,No
+Internal Application Server,Medium,No

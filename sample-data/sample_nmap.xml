@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nmaprun scanner="nmap" args="nmap -sV -oX sample_nmap.xml 10.10.0.0/16">
+  <host>
+    <status state="up" reason="echo-reply"/>
+    <address addr="10.10.10.10" addrtype="ipv4"/>
+    <os><osmatch name="Microsoft Windows Server" accuracy="96"/></os>
+    <ports>
+      <port protocol="tcp" portid="135"><state state="open"/><service name="msrpc"/></port>
+      <port protocol="tcp" portid="139"><state state="open"/><service name="netbios-ssn"/></port>
+      <port protocol="tcp" portid="445"><state state="open"/><service name="microsoft-ds"/></port>
+      <port protocol="tcp" portid="3389"><state state="open"/><service name="ms-wbt-server"/></port>
+      <port protocol="tcp" portid="80"><state state="closed"/><service name="http"/></port>
+    </ports>
+  </host>
+  <host>
+    <status state="up" reason="echo-reply"/>
+    <address addr="10.10.10.11" addrtype="ipv4"/>
+    <os><osmatch name="Microsoft Windows Server" accuracy="94"/></os>
+    <ports>
+      <port protocol="tcp" portid="445"><state state="open"/><service name="microsoft-ds"/></port>
+      <port protocol="tcp" portid="3389"><state state="open"/><service name="ms-wbt-server"/></port>
+      <port protocol="tcp" portid="139"><state state="closed"/><service name="netbios-ssn"/></port>
+    </ports>
+  </host>
+  <host>
+    <status state="up" reason="echo-reply"/>
+    <address addr="10.10.20.20" addrtype="ipv4"/>
+    <os><osmatch name="Linux" accuracy="98"/></os>
+    <ports>
+      <port protocol="tcp" portid="22"><state state="open"/><service name="ssh"/></port>
+      <port protocol="tcp" portid="80"><state state="open"/><service name="http"/></port>
+      <port protocol="tcp" portid="443"><state state="closed"/><service name="https"/></port>
+    </ports>
+  </host>
+  <host>
+    <status state="up" reason="echo-reply"/>
+    <address addr="10.10.20.21" addrtype="ipv4"/>
+    <os><osmatch name="Linux" accuracy="97"/></os>
+    <ports>
+      <port protocol="tcp" portid="22"><state state="open"/><service name="ssh"/></port>
+      <port protocol="tcp" portid="443"><state state="open"/><service name="https"/></port>
+      <port protocol="tcp" portid="80"><state state="closed"/><service name="http"/></port>
+    </ports>
+  </host>
+  <host>
+    <status state="up" reason="echo-reply"/>
+    <address addr="10.10.30.30" addrtype="ipv4"/>
+    <os><osmatch name="Linux" accuracy="95"/></os>
+    <ports>
+      <port protocol="tcp" portid="22"><state state="open"/><service name="ssh"/></port>
+      <port protocol="tcp" portid="8089"><state state="open"/><service name="splunkd"/></port>
+    </ports>
+  </host>
+  <host>
+    <status state="up" reason="echo-reply"/>
+    <address addr="10.10.40.40" addrtype="ipv4"/>
+    <os><osmatch name="Microsoft Windows" accuracy="93"/></os>
+    <ports>
+      <port protocol="tcp" portid="135"><state state="open"/><service name="msrpc"/></port>
+      <port protocol="tcp" portid="445"><state state="open"/><service name="microsoft-ds"/></port>
+      <port protocol="tcp" portid="3389"><state state="closed"/><service name="ms-wbt-server"/></port>
+    </ports>
+  </host>
+  <host>
+    <status state="up" reason="echo-reply"/>
+    <address addr="10.10.40.41" addrtype="ipv4"/>
+    <os><osmatch name="Microsoft Windows" accuracy="92"/></os>
+    <ports>
+      <port protocol="tcp" portid="139"><state state="open"/><service name="netbios-ssn"/></port>
+      <port protocol="tcp" portid="3389"><state state="open"/><service name="ms-wbt-server"/></port>
+      <port protocol="tcp" portid="445"><state state="closed"/><service name="microsoft-ds"/></port>
+    </ports>
+  </host>
+  <host>
+    <status state="up" reason="echo-reply"/>
+    <address addr="10.10.50.50" addrtype="ipv4"/>
+    <os><osmatch name="Linux" accuracy="96"/></os>
+    <ports>
+      <port protocol="tcp" portid="80"><state state="open"/><service name="http"/></port>
+      <port protocol="tcp" portid="443"><state state="open"/><service name="https"/></port>
+      <port protocol="tcp" portid="22"><state state="closed"/><service name="ssh"/></port>
+    </ports>
+  </host>
+  <host>
+    <status state="down" reason="no-response"/>
+    <address addr="10.10.60.60" addrtype="ipv4"/>
+    <os><osmatch name="Linux" accuracy="80"/></os>
+    <ports/>
+  </host>
+  <host>
+    <status state="down" reason="no-response"/>
+    <address addr="10.10.60.61" addrtype="ipv4"/>
+    <os><osmatch name="Microsoft Windows" accuracy="80"/></os>
+    <ports/>
+  </host>
+  <runstats>
+    <finished time="1784552400" summary="Nmap done: 10 IP addresses (8 hosts up) scanned"/>
+    <hosts up="8" down="2" total="10"/>
+  </runstats>
+</nmaprun>
