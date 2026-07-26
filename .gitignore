@@ -33,3 +33,7 @@ htmlcov/
 .DS_Store
 Thumbs.db
 .codex
+
+# Repository-local tooling and generated caches
+.codex/
+**pycache**/

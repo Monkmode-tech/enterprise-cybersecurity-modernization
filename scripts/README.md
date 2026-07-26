@@ -1,4 +1,13 @@
-# Security Log Parser
+## Table of Contents
+
+- [Security Log Parser Script](#security-log-parser-script)
+- [Nmap XML Parser Script](#nmap-xml-parser-script)
+- [Nessus Vulnerability Summary Script](#nessus-vulnerability-summary-script)
+- [Enterprise Risk Calculator Script](#enterprise-risk-calculator-script)
+- [IOC Extractor Script](#ioc-extractor-script)
+- [Splunk Query Generator](#splunk-query-generator)  
+
+# Security Log Parser Script
 
 ## Purpose
 
@@ -74,7 +83,7 @@ Malformed lines produce a warning with the line number and reason, then processi
 
 ---
 
-# Nmap XML Parser
+# Nmap XML Parser Script
 
 ## Purpose
 
@@ -154,7 +163,7 @@ Risk precedence is:
 
 ---
 
-# Nessus Vulnerability Summary
+# Nessus Vulnerability Summary Script
 
 ## Purpose
 
@@ -257,7 +266,7 @@ The remediation model is:
 
 ---
 
-# Enterprise Risk Calculator
+# Enterprise Risk Calculator Script
 
 ## Purpose
 
@@ -350,7 +359,7 @@ Classifications are Critical at 15 or above, High at 12 or above, Medium at 8 or
 
 ---
 
-# IOC Extractor
+# IOC Extractor Script
 
 ## Purpose
 
@@ -449,7 +458,7 @@ SHA256 hashes: 2
 
 ---
 
-# Splunk Query Generator
+# Splunk Query Generator Script
 
 ## Purpose
 
