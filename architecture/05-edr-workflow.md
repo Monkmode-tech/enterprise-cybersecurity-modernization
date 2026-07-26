@@ -43,4 +43,10 @@ flowchart LR
     REPORT -.->|Investigation feedback| CORRELATE
 ```
 
+![](../images/05-edr-workflow.png)
+
 The workflow adds endpoint visibility where monitoring was limited and provides a controlled route for host isolation, malicious-process termination, artifact quarantine, and evidence preservation. Central correlation and IOC analysis improve detection of unauthorized activity, while response status and investigation feedback support verification and future alert refinement.
+
+Figure 3-5 below illustrates the proposed Endpoint Detection and Response workflow for FICBANK. Endpoint telemetry is continuously analyzed to identify suspicious behavior, automate containment actions, and provide centralized visibility through Splunk Enterprise Security SIEM, thereby supporting continuous monitoring and Zero Trust security objectives.
+
+![](../images/05-endpoint-detection-workflow.png)

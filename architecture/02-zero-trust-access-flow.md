@@ -49,4 +49,10 @@ flowchart LR
     PLATFORM -->|Response action| AGENT
 ```
 
+![](../images/02-zero-trust-access-flow.png)
+
 This flow prevents network location or identity alone from granting trust and places all protected-resource access behind explicit policy enforcement. Context-aware, least-privilege decisions reduce exposed administrative access, while approved and denied events improve visibility into unauthorized activity and support investigation and endpoint response.
+
+Figure 3-3 below demonstrates identity authentication and authorization workflow.
+
+![](../images/02-identity-access-workflow.png)

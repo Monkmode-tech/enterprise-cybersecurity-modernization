@@ -47,4 +47,10 @@ flowchart LR
     REPORT -.->|Investigation feedback| CORRELATE
 ```
 
+![](../images/04-splunk-monitoring-architecture.png)
+
 Continuous collection addresses incomplete operational visibility, while periodic Nmap and Nessus context helps analysts interpret affected assets and vulnerabilities without treating scans as live events. Correlation and the preserved investigation feedback loop reduce alerting gaps and support repeatable analysis of indicators of compromise and unauthorized activity.
+
+Figure 3-4 below illustrates the centralized monitoring architecture proposed for FICBANK. Enterprise security telemetry is aggregated from identity services, endpoints, firewalls, servers, cloud resources, and network devices to support continuous monitoring, event correlation, and timely incident response consistent with NIST continuous monitoring principles.
+
+![](../images/04-splunk-security-architecture.png)

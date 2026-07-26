@@ -55,4 +55,10 @@ flowchart LR
     SPLUNK -->|Correlated alerts| SOC
 ```
 
-The proposed separation limits direct exposure of SMB, RDP, SSH, and administrative interfaces. Explicit policy decisions and enforcement reduce unauthorized access and lateral movement, while endpoint telemetry, vulnerability context, and security events converge in Splunk Enterprise Security to address limited monitoring, alerting gaps, and incomplete visibility.
+![](../images/01-enterprise-security-architecture.png)
+
+The proposed separation limits direct exposure of SMB, RDP, SSH, and administrative interfaces. Explicit policy decisions and enforcement reduce unauthorized access and lateral movement, while endpoint telemetry, vulnerability context, and security events converge in Splunk Enterprise Security to address limited monitoring, alerting gaps, and incomplete visibility. 
+
+Figure 3-1 below illustrates the proposed defense-in-depth architecture recommended for FICBANK based on Zero Trust principles and layered security controls.
+
+![](../images/01-defense-in-depth-security-architecture.png)
